@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background: #333;
+            padding: 10px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+nav ul li a.active {
+    font-weight: bold;
+    border-bottom: 2px solid yellow;
+}
+      nav h1{
+        color:white;
+       }
+        .product {
+            display: flex;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+        .slider {
+            position: relative;
+            width: 300px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slides img {
+            width: 300px;
+
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .prev { left: 0; }
+        .next { right: 0; }
+        .product-details {
+            margin-left: 20px;
+        }
+        .price {
+            font-size: 1.5em;
+            color: green;
+        }
+        .add-to-cart {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+.add-to-cart:hover{
+ background:#20b2aa;
+
+}
+        .reviews, .related-products {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .product-gallery {
+            display: flex;
+            gap: 20px;
+        }
+        .product-item img {
+            width: 100px;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+<h1>E-Commerce</h1>
+            <ul>
+                <li><a href="index.html"class="active">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="product">
+            <div class="slider">
+                <div class="slides">
+                    <img src="r1.jpeg" alt="Product Image 1">
+                    <img src="r2.jpeg" alt="Product Image 2">
+                    <img src="r3.jpeg" alt="Product Image 3">
+                </div>
+                <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="next" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+            <div class="product-details">
+                <h1>Lenovo</h1>
+                <p class="description">Intel core i5 Processor(12th Gen) | 8GB DDR4 RAM |.</p>
+			  <p class="description">Windows 11 Operating System | 512 GB SSD |</P>
+                <p class="price">$48,998</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </section>
+
+        <section class="reviews">
+            <h2>Customer Reviews</h2>
+            <p>⭐⭐⭐⭐☆ - Great product! Highly recommend.</p>
+        </section>
+
+        <section class="related-products">
+            <h2>Related Products</h2>
+            <div class="product-gallery">
+                <div class="product-item">
+                    <img src="images2.jfif" alt="Related Product 1">
+                    
+                </div>
+                <div class="product-item">
+                    <img src="images3.jpg" alt="Related Product 2">
+                   
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>E-Commerce Store</p>
+    </footer>
+
+    <script>
+        let index = 0;
+        function moveSlide(step) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = document.querySelectorAll('.slides img').length;
+            index = (index + step + totalSlides) % totalSlides;
+            slides.style.transform = `translateX(-${index * 300}px)`;
+        }
+    </script>
+</body>
+</html>
